@@ -1,9 +1,8 @@
 <template>
-    <div class="body-content outer-top-xs" id="top-banner-and-menu">
-        <div class="container">
-            <div class="row">
+    
                 <div class="col-xs-12 col-sm-12 col-md-3 sidebar"> 
-                        <div class="side-menu animate-dropdown outer-bottom-xs">
+                  <!-- All side bar go in side this div -->
+          <div class="side-menu animate-dropdown outer-bottom-xs">
           <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
           <nav class="yamm megamenu-horizontal">
             <ul class="nav">
@@ -335,18 +334,29 @@
               <!-- /.menu-item -->
               
               <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-envira"></i>Home and Garden</a> 
-                <!-- /.dropdown-menu --> </li>
-              <!-- /.menu-item -->
-              
+               </li>
             </ul>
-            <!-- /.nav --> 
           </nav>
-          <!-- /.megamenu-horizontal --> 
         </div>
 
+            <HotDeals/>
 
+            <SpecialOffer/>
+
+            <div class="home-banner"><img src="assets/images/banners/LHS-banner.jpg" alt="Image"> </div>
+      
                 </div>
-            </div>
-        </div>
-    </div>
+           
 </template>
+
+<script>
+import HotDeals from './HotDeals'
+import SpecialOffer from './SpecialOffer'
+  export default {
+  components: {
+    HotDeals,
+    SpecialOffer
+  
+  }
+}
+</script>
