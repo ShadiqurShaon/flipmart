@@ -126,7 +126,7 @@
 </template>
 
 <script>
-import Manubar from './ManuBar'
+import Manubar from './DinamicManue'
     export default {
   name: 'NavBar',
   components: {
