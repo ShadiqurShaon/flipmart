@@ -10,21 +10,23 @@
         <div class="nav-bg-class">
           <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
             <div class="nav-outer">
+              
               <ul class="nav navbar-nav">
                 <li class="active dropdown yamm-fw"> <a href="home.html">Home</a> </li>
-                <li class="dropdown mega-menu" v-for="item in manuelist" :key="item.manu1">
-                    <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown" style="text-transform: capitalize;">{{item.manu1}}</a>
+                <li class="dropdown mega-menu" v-for="item in getManue.obj_menu" :key="item.manu1">
+                    <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown" style="text-transform: capitalize;">{{item.menu_name}}</a>
                     
-                    <ul class="dropdown-menu container" v-if="item.manu2!=null">
+                    
+                    <ul class="dropdown-menu container" v-if="item.sub_menu!=null">
                         <li >
 
                             <div class="yamm-content">
                               <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-2 col-menu" v-for="(item2,index) in item.manu2" :key="index">
-                                  <h2 class="title" style="text-transform: capitalize;">{{item2.manu2}}</h2>
-                                  <ul class="links" v-if="item2.manu3!=null">
-                                    <li v-for="(item3,index) in item2.manu3" :key='index'>
-                                      <a href="#" style="text-transform: capitalize;">{{item3.manu3}}</a></li>
+                                <div class="col-xs-12 col-sm-12 col-md-2 col-menu" v-for="(item2,index) in item.sub_menu" :key="index">
+                                  <h2 class="title" style="text-transform: capitalize;">{{item2.sub_menu_name}}</h2>
+                                  <ul class="links" v-if="item2.sub_sub_menu!=null">
+                                    <li v-for="(item3,index) in item2.sub_sub_menu" :key='index'>
+                                      <a href="#" style="text-transform: capitalize;">{{item3.sub_sub_menu_name}}</a></li>
                                   </ul>
                                 </div>
                               </div>
@@ -66,6 +68,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import {MANU} from '../../store/actions.type.js'
 export default {
   data(){
     return {
@@ -98,6 +102,16 @@ export default {
       {manu1:'Clothing4'}
     ]}
   },
-  methods:{}
+  mounted(){
+    this.$store.dispatch(MANU)
+  },
+  computed: {
+      ...mapGetters([
+        'getManue',
+      ]),
+    
+  
+    }
 }
+
 </script>
