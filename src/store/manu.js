@@ -17,10 +17,10 @@ const actions = {
         return new Promise((resolve)=>{
             Apiservice.get('menu')
             .then((value)=>{
-                console.log(value);
+                
                 context.commit(GET_MANUES,value.data)
             }).catch((res)=>{
-                console.log(res);
+               console.log(res)
                 
             })
         })

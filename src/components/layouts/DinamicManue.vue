@@ -17,14 +17,14 @@
                     <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown" style="text-transform: capitalize;">{{item.menu_name}}</a>
                     
                     
-                    <ul class="dropdown-menu container" v-if="item.sub_menu!=null">
+                    <ul class="dropdown-menu container" v-if="item.sub_menu.length>0">
                         <li >
 
                             <div class="yamm-content">
                               <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-2 col-menu" v-for="(item2,index) in item.sub_menu" :key="index">
                                   <h2 class="title" style="text-transform: capitalize;">{{item2.sub_menu_name}}</h2>
-                                  <ul class="links" v-if="item2.sub_sub_menu!=null">
+                                  <ul class="links" v-if="item2.sub_sub_menu.length>0">
                                     <li v-for="(item3,index) in item2.sub_sub_menu" :key='index'>
                                       <a href="#" style="text-transform: capitalize;">{{item3.sub_sub_menu_name}}</a></li>
                                   </ul>
